@@ -1,35 +1,35 @@
-# m-hasan.vercel.app
+# meet.mehedi-hasan.me
 
-> An ultra-fast, modern redirect website built with [Astro](https://astro.build). Automatically redirects visitors from **[m-hasan.vercel.app](https://m-hasan.vercel.app)** to **[mehedi-hasan.me](https://mehedi-hasan.me)**.
+> An ultra-fast, modern redirect website built with [Astro](https://astro.build). Automatically redirects visitors from **[meet.mehedi-hasan.me](https://meet.mehedi-hasan.me)** to **[Google Meet](https://meet.google.com/nvy-xigu-xum)**.
 
-[![Live URL](https://img.shields.io/badge/Live%20URL-m--hasan.vercel.app-000000?style=for-the-badge&logo=vercel)](https://m-hasan.vercel.app)
-[![Target Destination](https://img.shields.io/badge/Redirects%20To-mehedi--hasan.me-38bdf8?style=for-the-badge)](https://mehedi-hasan.me)
-[![GitHub Repository](https://img.shields.io/badge/Repository-TheMehediHQ%2Fm--hasan.vercel.app-blue?style=for-the-badge&logo=github)](https://github.com/TheMehediHQ/m-hasan.vercel.app)
+[![Target Google Meet](https://img.shields.io/badge/Google%20Meet-nvy--xigu--xum-00ac47?style=for-the-badge&logo=google-meet&logoColor=white)](https://meet.google.com/nvy-xigu-xum)
+[![Source Domain](https://img.shields.io/badge/Source%20Domain-meet.mehedi--hasan.me-38bdf8?style=for-the-badge)](https://meet.mehedi-hasan.me)
+[![Repository](https://img.shields.io/badge/Repository-TheMehediHQ%2Fmeet.mehedi--hasan.me-blue?style=for-the-badge&logo=github)](https://github.com/TheMehediHQ/meet.mehedi-hasan.me)
 
 ---
 
 ## 📌 Project Overview
 
-- **Project Name:** `m-hasan.vercel.app`
-- **Repository:** [`TheMehediHQ/m-hasan.vercel.app`](https://github.com/TheMehediHQ/m-hasan.vercel.app)
-- **Source URL:** [https://m-hasan.vercel.app](https://m-hasan.vercel.app)
-- **Target Destination:** [https://mehedi-hasan.me](https://mehedi-hasan.me)
+- **Project Name:** `meet.mehedi-hasan.me`
+- **Repository:** [`TheMehediHQ/meet.mehedi-hasan.me`](https://github.com/TheMehediHQ/meet.mehedi-hasan.me)
+- **Source Domain:** [https://meet.mehedi-hasan.me](https://meet.mehedi-hasan.me)
+- **Target Destination:** [https://meet.google.com/nvy-xigu-xum](https://meet.google.com/nvy-xigu-xum)
 
 ---
 
 ## ⚡ Key Features
 
 1. **Triple-Layer Redirection System**:
-   - **Edge / Server-Level 301 Redirect**: Powered by `vercel.json` (for Vercel) and `_redirects` (for Netlify and Cloudflare Pages) for instant, zero-delay HTTP 301 redirection at the edge before any HTML is parsed.
-   - **Immediate Client-Side JavaScript**: Executes `window.location.replace()` in the document `<head>` to immediately route users without polluting the browser's Back button history.
-   - **HTML `<meta http-equiv="refresh">`**: Fallback mechanism for bots, scrapers, or browser clients with JavaScript disabled.
-2. **SEO & Link Equity Preservation**:
-   - Includes `rel="canonical"` pointed directly to `https://mehedi-hasan.me/`.
-   - Employs `robots: "noindex, follow"` to prevent search engines from treating the redirect domain as duplicate content while passing along page authority.
+   - **Edge / Server-Level 302/307 Redirect**: Powered by `vercel.json` (for Vercel) and `_redirects` (for Netlify and Cloudflare Pages) for zero-latency temporary redirection without aggressive browser caching (allowing meeting links to be updated freely in the future).
+   - **Immediate Client-Side JavaScript**: Executes `window.location.replace()` in `<head>` to immediately launch the meeting room without adding dummy states to browser history.
+   - **HTML `<meta http-equiv="refresh">`**: Immediate fallback for web clients and bots where JavaScript is disabled.
+2. **SEO & Privacy Protection**:
+   - `robots: "noindex, nofollow"` prevents search engines and web crawlers from indexing private meeting rooms.
+   - `rel="canonical"` pointed directly to the Google Meet link.
 3. **Catch-All 404 Fallback**:
-   - Includes a dedicated `404.astro` page so any requested subpath (e.g., `/about`, `/projects`) automatically redirects to the destination root.
-4. **Modern Fallback UI**:
-   - Elegant dark-mode interface with a loading spinner and manual destination link in case client redirection is delayed.
+   - Includes a dedicated `404.astro` page to route any subpath or typos directly into the meeting room.
+4. **Clean Fallback UI**:
+   - Sleek Google Meet-themed card with animated spinner and a direct **"Join Meeting Now"** button.
 
 ---
 
@@ -42,8 +42,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/TheMehediHQ/m-hasan.vercel.app.git
-cd m-hasan.vercel.app
+git clone https://github.com/TheMehediHQ/meet.mehedi-hasan.me.git
+cd meet.mehedi-hasan.me
 
 # Install dependencies
 npm install
@@ -66,7 +66,7 @@ npm run build
 bun run build
 ```
 
-Production static assets will be output to the `dist/` folder.
+Production static assets will be output to the `dist/` directory.
 
 ---
 
@@ -74,10 +74,10 @@ Production static assets will be output to the `dist/` folder.
 
 ### Vercel (Recommended)
 1. Push your code to GitHub.
-2. Import repository `TheMehediHQ/m-hasan.vercel.app` into [Vercel](https://vercel.com).
+2. Import repository `TheMehediHQ/meet.mehedi-hasan.me` into [Vercel](https://vercel.com).
 3. The framework will be automatically detected as **Astro**.
-4. Set the project name / domain to **`m-hasan.vercel.app`**.
-5. Deploy. `vercel.json` will automatically manage 301 edge redirects.
+4. In Vercel Project Settings > **Domains**, add **`meet.mehedi-hasan.me`**.
+5. Deploy. `vercel.json` will automatically handle instant 307 edge redirects.
 
 ### Cloudflare Pages
 1. Connect repository in Cloudflare Dashboard under **Workers & Pages** > **Pages**.
@@ -85,7 +85,8 @@ Production static assets will be output to the `dist/` folder.
    - Framework preset: `Astro`
    - Build command: `npm run build`
    - Output directory: `dist`
-3. Deploy. The `_redirects` file automatically handles edge redirection.
+3. Add custom domain **`meet.mehedi-hasan.me`**.
+4. Deploy. The `_redirects` file automatically handles edge redirection.
 
 ### Netlify
 1. Import repository into Netlify.

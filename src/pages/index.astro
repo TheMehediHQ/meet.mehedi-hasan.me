@@ -1,6 +1,6 @@
 ---
-// Index redirect page
-const TARGET_URL = "https://mehedi-hasan.me/";
+// Index redirect page for Google Meet
+const TARGET_URL = "https://meet.google.com/nvy-xigu-xum";
 ---
 
 <!doctype html>
@@ -8,10 +8,10 @@ const TARGET_URL = "https://mehedi-hasan.me/";
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Redirecting to mehedi-hasan.me...</title>
+		<title>Redirecting to Google Meet...</title>
 		<meta http-equiv="refresh" content={`0; url=${TARGET_URL}`} />
 		<link rel="canonical" href={TARGET_URL} />
-		<meta name="robots" content="noindex, follow" />
+		<meta name="robots" content="noindex, nofollow" />
 		<script is:inline define:vars={{ TARGET_URL }}>
 			// Immediate client-side redirect using location.replace so history is clean
 			window.location.replace(TARGET_URL);
@@ -21,25 +21,25 @@ const TARGET_URL = "https://mehedi-hasan.me/";
 		<main class="container">
 			<div class="card">
 				<div class="spinner"></div>
-				<h1>Redirecting...</h1>
-				<p>Taking you to <span class="url">mehedi-hasan.me</span></p>
+				<h1>Joining Google Meet...</h1>
+				<p>Redirecting you to <span class="url">meet.google.com/nvy-xigu-xum</span></p>
 				<p class="subtext">
-					If you are not redirected automatically within a few seconds,
+					If you are not redirected automatically,
 					<br />
-					<a href={TARGET_URL} class="link">click here to proceed</a>.
+					<a href={TARGET_URL} class="btn">Join Meeting Now</a>
 				</p>
 			</div>
 		</main>
 
 		<style>
 			:root {
-				--bg: #090d16;
-				--card-bg: rgba(255, 255, 255, 0.04);
-				--border: rgba(255, 255, 255, 0.08);
+				--bg: #0b1120;
+				--card-bg: rgba(255, 255, 255, 0.05);
+				--border: rgba(255, 255, 255, 0.1);
 				--text-primary: #f8fafc;
 				--text-secondary: #94a3b8;
-				--accent: #38bdf8;
-				--accent-hover: #7dd3fc;
+				--meet-green: #00ac47;
+				--meet-hover: #00c853;
 			}
 
 			* {
@@ -61,31 +61,31 @@ const TARGET_URL = "https://mehedi-hasan.me/";
 
 			.container {
 				width: 100%;
-				max-width: 440px;
+				max-width: 460px;
 			}
 
 			.card {
 				background: var(--card-bg);
 				border: 1px solid var(--border);
-				border-radius: 16px;
-				padding: 2.5rem 2rem;
+				border-radius: 20px;
+				padding: 2.75rem 2rem;
 				text-align: center;
-				backdrop-filter: blur(12px);
-				box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+				backdrop-filter: blur(16px);
+				box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
 			}
 
 			.spinner {
-				width: 44px;
-				height: 44px;
+				width: 48px;
+				height: 48px;
 				margin: 0 auto 1.5rem;
-				border: 3px solid rgba(56, 189, 248, 0.15);
-				border-top-color: var(--accent);
+				border: 3.5px solid rgba(0, 172, 71, 0.2);
+				border-top-color: var(--meet-green);
 				border-radius: 50%;
 				animation: spin 0.8s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite;
 			}
 
 			h1 {
-				font-size: 1.4rem;
+				font-size: 1.5rem;
 				font-weight: 600;
 				letter-spacing: -0.02em;
 				margin-bottom: 0.5rem;
@@ -98,26 +98,32 @@ const TARGET_URL = "https://mehedi-hasan.me/";
 			}
 
 			.url {
-				color: var(--accent);
+				color: #38bdf8;
 				font-weight: 500;
+				word-break: break-all;
 			}
 
 			.subtext {
-				margin-top: 1.25rem;
-				font-size: 0.85rem;
+				margin-top: 1.75rem;
+				font-size: 0.9rem;
 			}
 
-			.link {
-				color: var(--accent);
-				text-decoration: underline;
-				text-underline-offset: 3px;
-				transition: color 0.2s ease;
+			.btn {
 				display: inline-block;
-				margin-top: 0.4rem;
+				margin-top: 0.85rem;
+				padding: 0.65rem 1.4rem;
+				background: var(--meet-green);
+				color: #ffffff;
+				text-decoration: none;
+				border-radius: 9999px;
+				font-weight: 500;
+				font-size: 0.95rem;
+				transition: background-color 0.2s ease, transform 0.1s ease;
 			}
 
-			.link:hover {
-				color: var(--accent-hover);
+			.btn:hover {
+				background: var(--meet-hover);
+				transform: translateY(-1px);
 			}
 
 			@keyframes spin {
